@@ -1,16 +1,11 @@
-# my_portrait
+# Meu retrato
 
-A new Flutter project.
+Não disponibiliza seus dados para terceiros.
 
-## Getting Started
+Único acesso que precisamos é da câmera para poder ter acesso a realidade aumentada
 
-This project is a starting point for a Flutter application.
+# Atenção aos direitos de uso
 
-A few resources to get you started if this is your first Flutter project:
+Esse aplicativo está patenteado pelo INPI (Instituto Nacional da Propriedade Industrial )
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Disponibilizado o código fonte como uma forma de ajudar a comunidade no desenvolvimento em AR e para quem quiser contribuir com o projeto.
