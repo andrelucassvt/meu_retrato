@@ -26,7 +26,6 @@ class PreferenceLocalData {
     final lista = prefs.getStringList(banco) ?? [];
     lista.add(jsonEncode(retratosEntity.toJson()));
     return prefs.setStringList(banco, lista);
-    //return prefs.setStringList(banco, jsonEncode(retratosEntity.toJson()));
   }
 
   static Image imageFromBase64String(String base64String) {

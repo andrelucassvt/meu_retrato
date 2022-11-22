@@ -3,7 +3,9 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
+import 'package:my_portrait/app/core/routes/routes_app.dart';
 import 'package:my_portrait/app/core/widgets/app_bar_commom.dart';
+import 'package:my_portrait/app/features/arkit/presenter/arcore_screen.dart';
 import 'package:my_portrait/app/features/arkit/presenter/arkit_screen.dart';
 import 'package:my_portrait/app/features/home/domain/entity/retratos_entity.dart';
 import 'package:my_portrait/app/features/home/presenter/widgets/card_retratos_widget.dart';
@@ -38,6 +40,9 @@ class _LocalScreenState extends State<LocalScreen> {
                       builder: (_) => ArkitScreen(
                             retratos: retratos!,
                           )));
+                } else {
+                  Navigator.of(context).push(
+                      MaterialPageRoute(builder: (_) => const ArcoreScreen()));
                 }
               },
               label: const Text('Visualizar'),
@@ -74,8 +79,19 @@ class _LocalScreenState extends State<LocalScreen> {
             if (state is LocalSucesso) {
               retratos = state.retratos;
               if (retratos!.isEmpty) {
-                return const Center(
-                  child: Text('Você não tem retratos, adicione um agora'),
+                return Center(
+                  child: TextButton(
+                    child: const Text(
+                      'Você não tem retratos\nClique aqui e adicione um agora',
+                      textAlign: TextAlign.center,
+                    ),
+                    onPressed: () {
+                      Navigator.pushNamed(context, RoutesApp.createPortrait)
+                          .then((value) {
+                        _cubit.buscarRetratos();
+                      });
+                    },
+                  ),
                 );
               }
               return ListView.builder(

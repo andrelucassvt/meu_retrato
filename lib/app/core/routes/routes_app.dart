@@ -10,12 +10,14 @@ class RoutesApp {
   static const remoteScreen = '/remote-screen';
   static const createPortrait = '/create-portrait';
   static const arkit = '/arkit';
+  static const arcore = '/arcore';
 
   static final routes = <String, WidgetBuilder>{
     home: (BuildContext context) => const HomeScreen(),
     localScreen: (context) => const LocalScreen(),
     remoteScreen: (context) => const RemoteScrenn(),
     createPortrait: (context) => const CreatePortraitScreen(),
+    //arcore: (context) => const ArcoreScreen()
     //arkit: (context) => const ArkitScreen()
   };
 }

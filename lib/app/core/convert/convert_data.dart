@@ -10,8 +10,4 @@ class ConvertData {
   static String base64String(Uint8List data) {
     return base64Encode(data);
   }
-
-  static String tratamentoFile(String file) {
-    return file.replaceAll('file://', '');
-  }
 }

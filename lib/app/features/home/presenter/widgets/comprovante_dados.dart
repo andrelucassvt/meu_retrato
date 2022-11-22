@@ -3,7 +3,6 @@ import 'dart:io';
 import 'package:flutter/material.dart';
 import 'package:my_portrait/app/features/home/domain/entity/retratos_entity.dart';
 import 'package:share_plus/share_plus.dart';
-import 'package:widgets_to_image/widgets_to_image.dart';
 
 class ComprovanteDadosScreen extends StatefulWidget {
   const ComprovanteDadosScreen({required this.retratosEntity, super.key});
@@ -14,8 +13,6 @@ class ComprovanteDadosScreen extends StatefulWidget {
 }
 
 class _ComprovanteDadosScreenState extends State<ComprovanteDadosScreen> {
-  final WidgetsToImageController controllerScreenWidget =
-      WidgetsToImageController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -50,17 +47,14 @@ class _ComprovanteDadosScreenState extends State<ComprovanteDadosScreen> {
       ),
       body: Center(
         child: SingleChildScrollView(
-          child: WidgetsToImage(
-            controller: controllerScreenWidget,
-            child: Column(
-              mainAxisAlignment: MainAxisAlignment.center,
-              children: [
-                SizedBox(
-                  width: 300,
-                  child: Image.file(File(widget.retratosEntity.qrCode)),
-                ),
-              ],
-            ),
+          child: Column(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [
+              SizedBox(
+                width: 300,
+                child: Image.file(File(widget.retratosEntity.qrCode)),
+              ),
+            ],
           ),
         ),
       ),
