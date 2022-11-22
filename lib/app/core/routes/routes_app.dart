@@ -13,7 +13,7 @@ class RoutesApp {
   static const arcore = '/arcore';
 
   static final routes = <String, WidgetBuilder>{
-    home: (BuildContext context) => const HomeScreen(),
+    home: (context) => const HomeScreen(),
     localScreen: (context) => const LocalScreen(),
     remoteScreen: (context) => const RemoteScrenn(),
     createPortrait: (context) => const CreatePortraitScreen(),
