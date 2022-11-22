@@ -208,32 +208,6 @@ class _CreatePortraitScreenState extends State<CreatePortraitScreen> {
       );
     } else {
       _salvarBytes();
-      // showCupertinoModalPopup<void>(
-      //   context: context,
-      //   builder: (BuildContext context) => CupertinoAlertDialog(
-      //     title: const Text(
-      //       'Atenção',
-      //       style: TextStyle(color: Colors.red),
-      //     ),
-      //     content: const Text(
-      //         'O QRCODE será salvo na sua galeria, é necessario que ele permaneça lá para funcionalidade de AR conseguir identificar'),
-      //     actions: <CupertinoDialogAction>[
-      //       CupertinoDialogAction(
-      //         onPressed: () {
-      //           Navigator.pop(context);
-      //         },
-      //         isDestructiveAction: true,
-      //         child: const Text('Fechar'),
-      //       ),
-      //       CupertinoDialogAction(
-      //         onPressed: () async {
-      //           await _salvarBytes();
-      //         },
-      //         child: const Text('Salvar'),
-      //       ),
-      //     ],
-      //   ),
-      // );
     }
   }
 
