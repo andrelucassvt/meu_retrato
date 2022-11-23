@@ -5,7 +5,6 @@ import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:my_portrait/app/core/routes/routes_app.dart';
 import 'package:my_portrait/app/core/widgets/app_bar_commom.dart';
-import 'package:my_portrait/app/features/arkit/presenter/arcore_screen.dart';
 import 'package:my_portrait/app/features/arkit/presenter/arkit_screen.dart';
 import 'package:my_portrait/app/features/home/domain/entity/retratos_entity.dart';
 import 'package:my_portrait/app/features/home/presenter/widgets/card_retratos_widget.dart';
@@ -40,9 +39,6 @@ class _LocalScreenState extends State<LocalScreen> {
                       builder: (_) => ArkitScreen(
                             retratos: retratos!,
                           )));
-                } else {
-                  Navigator.of(context).push(
-                      MaterialPageRoute(builder: (_) => const ArcoreScreen()));
                 }
               },
               label: const Text('Visualizar'),

@@ -10,6 +10,7 @@ import 'package:my_portrait/app/core/convert/convert_data.dart';
 import 'package:my_portrait/app/features/create_portrait/presenter/cubit/create_protrait_cubit.dart';
 import 'package:my_portrait/app/features/home/domain/entity/retratos_entity.dart';
 import 'package:my_portrait/app/features/home/presenter/widgets/comprovante_dados.dart';
+import 'package:my_portrait/app/features/tutorial/presenter/tutorial_screen.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:widgets_to_image/widgets_to_image.dart';
@@ -63,7 +64,14 @@ class _CreatePortraitScreenState extends State<CreatePortraitScreen> {
         backgroundColor: Colors.white,
         elevation: 1,
         actions: [
-          IconButton(onPressed: () {}, icon: const Icon(Icons.info_outline))
+          IconButton(
+              onPressed: () {
+                showModalBottomSheet(
+                  context: context,
+                  builder: (context) => TutotialScreen(),
+                );
+              },
+              icon: const Icon(Icons.info_outline))
         ],
       ),
       body: BlocConsumer<CreateProtraitCubit, CreateProtraitState>(

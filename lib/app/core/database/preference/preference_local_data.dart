@@ -6,6 +6,19 @@ import 'package:shared_preferences/shared_preferences.dart';
 
 class PreferenceLocalData {
   static const banco = 'retratos';
+  static const acesso = 'acesso';
+
+  static Future<bool> getPrimeiroAcesso() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    bool result = prefs.getBool(acesso) ?? true;
+    return result;
+  }
+
+  static Future<void> salvarPrimeiroAcesso() async {
+    final SharedPreferences prefs = await SharedPreferences.getInstance();
+    prefs.setBool(acesso, false);
+  }
+
   static Future<List<String>> getImageFromPreferences() async {
     final SharedPreferences prefs = await SharedPreferences.getInstance();
     return prefs.getStringList(banco) ?? [];
