@@ -59,15 +59,17 @@ class _CreatePortraitScreenState extends State<CreatePortraitScreen> {
           'Criar retrato',
           style: TextStyle(color: Colors.black),
         ),
+        centerTitle: true,
         iconTheme: const IconThemeData(color: Colors.black, size: 18),
         backgroundColor: Colors.white,
         elevation: 1,
         actions: [
-          IconButton(
-              onPressed: () {
-                HomeCoordinator.navegarParaTutorial(context);
-              },
-              icon: const Icon(Icons.info_outline))
+          TextButton(
+            onPressed: () {
+              HomeCoordinator.navegarParaTutorial(context);
+            },
+            child: Text('Tutorial'),
+          )
         ],
       ),
       body: BlocConsumer<CreateProtraitCubit, CreateProtraitState>(

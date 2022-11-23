@@ -78,7 +78,7 @@ class _TutotialScreenState extends State<TutotialScreen> {
                   height: 10,
                 ),
                 Text(
-                  'Depois que salvar o retrato, você será direcionado para tela de exportar o QRCODE.\nRecomendados que você imprima o QRCODE e cole em na sua parede ou onde desejar para ter a imersão correta',
+                  'Depois que salvar o retrato, você será direcionado para tela de exportar o QRCODE.\nRecomendados que você imprima o QRCODE e cole na sua parede ou onde desejar para ter a imersão correta',
                   style: _textStyle,
                   textAlign: TextAlign.left,
                 ),
