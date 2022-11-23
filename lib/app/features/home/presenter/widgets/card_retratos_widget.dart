@@ -1,7 +1,7 @@
 import 'package:flutter/cupertino.dart';
 import 'package:flutter/material.dart';
+import 'package:my_portrait/app/features/home/coordinator/home_coordinator.dart';
 import 'package:my_portrait/app/features/home/domain/entity/retratos_entity.dart';
-import 'package:my_portrait/app/features/home/presenter/widgets/comprovante_dados.dart';
 
 class CardRetratosWidget extends StatefulWidget {
   const CardRetratosWidget(
@@ -24,11 +24,10 @@ class _CardRetratosWidgetState extends State<CardRetratosWidget> {
           borderRadius: BorderRadius.all(Radius.circular(10))),
       child: InkWell(
         onTap: () {
-          showModalBottomSheet(
-              context: context,
-              isDismissible: false,
-              builder: (ctx) => ComprovanteDadosScreen(
-                  retratosEntity: widget.retratosEntity));
+          HomeCoordinator.navegarParaComprovanteQRCode(
+            context,
+            retratosEntity: widget.retratosEntity,
+          );
         },
         child: Row(
           mainAxisAlignment: MainAxisAlignment.spaceBetween,
