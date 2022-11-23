@@ -1,7 +1,7 @@
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     package="com.andre.my_portrait">
    <application
-        android:label="my_portrait"
+        android:label="Meu retrato"
         android:name="${applicationName}"
         android:icon="@mipmap/launcher_icon">
         <activity

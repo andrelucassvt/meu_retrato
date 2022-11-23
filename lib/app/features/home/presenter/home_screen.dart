@@ -12,8 +12,6 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  int _selectedIndex = 0;
-
   var pages = [const LocalScreen(), const RemoteScrenn()];
 
   _getPrimeiroAcesso() async {
@@ -37,27 +35,28 @@ class _HomeScreenState extends State<HomeScreen> {
 
   @override
   Widget build(BuildContext context) {
-    return Scaffold(
-      body: pages[_selectedIndex],
-      bottomNavigationBar: BottomNavigationBar(
-        items: const <BottomNavigationBarItem>[
-          BottomNavigationBarItem(
-            icon: Icon(Icons.home),
-            label: 'Local',
-          ),
-          BottomNavigationBarItem(
-            icon: Icon(Icons.cloud),
-            label: 'Remote',
-          ),
-        ],
-        currentIndex: _selectedIndex,
-        selectedItemColor: Colors.blueAccent,
-        onTap: (value) {
-          setState(() {
-            _selectedIndex = value;
-          });
-        },
-      ),
-    );
+    return pages[0];
+    // return Scaffold(
+    //   body: pages[_selectedIndex],
+    //   bottomNavigationBar: BottomNavigationBar(
+    //     items: const <BottomNavigationBarItem>[
+    //       BottomNavigationBarItem(
+    //         icon: Icon(Icons.home),
+    //         label: 'Local',
+    //       ),
+    //       BottomNavigationBarItem(
+    //         icon: Icon(Icons.cloud),
+    //         label: 'Remote',
+    //       ),
+    //     ],
+    //     currentIndex: _selectedIndex,
+    //     selectedItemColor: Colors.blueAccent,
+    //     onTap: (value) {
+    //       setState(() {
+    //         _selectedIndex = value;
+    //       });
+    //     },
+    //   ),
+    // );
   }
 }

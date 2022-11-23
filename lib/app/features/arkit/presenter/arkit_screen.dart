@@ -30,7 +30,7 @@ class _ArkitScreenState extends State<ArkitScreen> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      appBar: AppBar(title: const Text('AR Retratos')),
+      appBar: AppBar(title: const Text('Realidade aumentada')),
       body: Stack(
         fit: StackFit.expand,
         children: [

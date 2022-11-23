@@ -1,11 +1,9 @@
-import 'dart:io';
-
 import 'package:flutter/material.dart';
 import 'package:flutter_bloc/flutter_bloc.dart';
 import 'package:get_it/get_it.dart';
 import 'package:my_portrait/app/core/routes/routes_app.dart';
 import 'package:my_portrait/app/core/widgets/app_bar_commom.dart';
-import 'package:my_portrait/app/features/arkit/presenter/arkit_screen.dart';
+import 'package:my_portrait/app/features/arkit/presenter/types_view_ar_screen.dart';
 import 'package:my_portrait/app/features/home/domain/entity/retratos_entity.dart';
 import 'package:my_portrait/app/features/home/presenter/widgets/card_retratos_widget.dart';
 import 'package:my_portrait/app/features/local/presenter/cubit/local_cubit.dart';
@@ -34,19 +32,17 @@ class _LocalScreenState extends State<LocalScreen> {
       floatingActionButton: showFloatingButton
           ? FloatingActionButton.extended(
               onPressed: () {
-                if (Platform.isIOS) {
-                  Navigator.of(context).push(MaterialPageRoute(
-                      builder: (_) => ArkitScreen(
-                            retratos: retratos!,
-                          )));
-                }
+                showModalBottomSheet(
+                    context: context,
+                    builder: (context) =>
+                        TypesViewArScreen(retratos: retratos!));
               },
               label: const Text('Visualizar'),
               icon: const Icon(Icons.camera),
             )
           : null,
       appBar: AppBarCommom(
-        titulo: 'Retratos locais',
+        titulo: 'Retratos',
         reloadDados: () {
           _cubit.buscarRetratos();
         },
