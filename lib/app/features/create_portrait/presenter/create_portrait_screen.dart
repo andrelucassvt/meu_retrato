@@ -8,9 +8,8 @@ import 'package:get_it/get_it.dart';
 import 'package:image_picker/image_picker.dart';
 import 'package:my_portrait/app/core/convert/convert_data.dart';
 import 'package:my_portrait/app/features/create_portrait/presenter/cubit/create_protrait_cubit.dart';
+import 'package:my_portrait/app/features/home/coordinator/home_coordinator.dart';
 import 'package:my_portrait/app/features/home/domain/entity/retratos_entity.dart';
-import 'package:my_portrait/app/features/home/presenter/widgets/comprovante_dados.dart';
-import 'package:my_portrait/app/features/tutorial/presenter/tutorial_screen.dart';
 import 'package:path_provider/path_provider.dart';
 import 'package:qr_flutter/qr_flutter.dart';
 import 'package:widgets_to_image/widgets_to_image.dart';
@@ -60,18 +59,17 @@ class _CreatePortraitScreenState extends State<CreatePortraitScreen> {
           'Criar retrato',
           style: TextStyle(color: Colors.black),
         ),
+        centerTitle: true,
         iconTheme: const IconThemeData(color: Colors.black, size: 18),
         backgroundColor: Colors.white,
         elevation: 1,
         actions: [
-          IconButton(
-              onPressed: () {
-                showModalBottomSheet(
-                  context: context,
-                  builder: (context) => TutotialScreen(),
-                );
-              },
-              icon: const Icon(Icons.info_outline))
+          TextButton(
+            onPressed: () {
+              HomeCoordinator.navegarParaTutorial(context);
+            },
+            child: Text('Tutorial'),
+          )
         ],
       ),
       body: BlocConsumer<CreateProtraitCubit, CreateProtraitState>(
@@ -85,10 +83,11 @@ class _CreatePortraitScreenState extends State<CreatePortraitScreen> {
             ));
           } else if (state is CreateProtraitSucesso) {
             Navigator.of(context).popUntil((route) => route.isFirst);
-            showModalBottomSheet(
-                context: context,
-                builder: (ctx) => ComprovanteDadosScreen(
-                    retratosEntity: state.retratosEntity));
+            HomeCoordinator.navegarParaComprovanteQRCode(
+              context,
+              retratosEntity: state.retratosEntity,
+              isDismissible: false,
+            );
           }
         },
         builder: (context, state) {
